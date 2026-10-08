@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta Hoang Minh - Computer Science Applicant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e40af', // Deep Blue
+                        secondary: '#3b82f6', // Light Blue
+                        dark: '#1e293b', // Slate 800
+                        light: '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-slate-200 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <span class="font-bold text-xl tracking-tight text-primary">THM.</span>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#education" class="hover:text-primary transition-colors">Education</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                    <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-sm font-medium text-slate-600">
+                <a href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-50 hover:text-primary">About</a>
+                <a href="#education" class="block px-3 py-2 rounded-md hover:bg-slate-50 hover:text-primary">Education</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-50 hover:text-primary">Projects</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-slate-50 hover:text-primary">Experience</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-50 hover:text-primary">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <header id="about" class="py-12 md:py-20 flex flex-col md:flex-row items-center gap-10 section-fade">
+            <!-- Profile Image -->
+            <div class="w-48 h-48 md:w-56 md:h-56 shrink-0 relative rounded-full overflow-hidden border-4 border-white shadow-xl">
+                <!-- Using placeholder for now, you should replace this with your actual image path on GitHub -->
+                <img src="https://placehold.co/400x400/1e40af/ffffff?text=TM" alt="Ta Hoang Minh" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="text-center md:text-left flex-1">
+                <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4 tracking-tight">Ta Hoang Minh</h1>
+                <h2 class="text-xl md:text-2xl text-secondary font-medium mb-6">Finance Master's Graduate transitioning to Computer Science</h2>
+                
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-slate-600 mb-6">
+                    <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-slate-400"></i> Taipei, Taiwan</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-phone text-slate-400"></i> 0903-383-101</span>
+                    <a href="mailto:tahoangminh26@gmail.com" class="flex items-center gap-2 hover:text-primary transition-colors"><i class="fas fa-envelope text-slate-400"></i> tahoangminh26@gmail.com</a>
+                </div>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <button onclick="copyEmail()" class="bg-primary hover:bg-blue-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md transition-all active:scale-95 flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </button>
+                    <!-- Add your LinkedIn/GitHub URLs here when deploying -->
+                    <a href="#" class="bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition-all flex items-center gap-2">
+                        <i class="fab fa-github text-lg"></i> GitHub
+                    </a>
+                    <a href="#" class="bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition-all flex items-center gap-2">
+                        <i class="fab fa-linkedin text-lg text-blue-600"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-16 bg-white p-8 rounded-2xl shadow-sm border border-slate-100 section-fade">
+            <h3 class="text-xl font-bold text-dark mb-4 flex items-center gap-3">
+                <i class="fas fa-bullseye text-primary"></i> Objective
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+                Forward-thinking Finance professional and Yuan Ze University alumnus (M.S. in Finance, GPA 3.66) seeking admission to the <strong>Master's program in Computer Science at Yuan Ze University</strong>. Passionate about AI, IoT, and software development. Eager to transition into Computer Science to bridge the gap between financial analytics and technology. Equipped with hands-on experience in building IoT-integrated web applications, Python programming, and a strong foundation in quantitative methods and logical problem-solving.
+            </p>
+        </section>
+
+        <section id="education" class="mb-16 section-fade">
+            <h3 class="text-2xl font-bold text-dark mb-8 border-b pb-2 border-slate-200 flex items-center gap-3">
+                <i class="fas fa-graduation-cap text-primary"></i> Education
+            </h3>
+            
+            <div class="space-y-8">
+                <!-- YZU -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[-29px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-slate-50"></div>
+                    <div class="md:border-l-2 md:border-slate-200 md:pl-8 md:ml-[5px]">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                            <h4 class="text-lg font-bold text-dark">Yuan Ze University (YZU)</h4>
+                            <span class="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Feb 2021 – Jun 2023</span>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Master of Science in Finance (English Taught Program)</p>
+                        <p class="text-sm text-slate-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i> Taoyuan, Taiwan</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1.5 text-sm">
+                            <li><strong class="text-slate-700">GPA:</strong> 3.66/4.00 | Average Grade: 88.92</li>
+                            <li><strong class="text-slate-700">Highlight:</strong> Demonstrated strong quantitative and logical thinking skills, highly applicable to data structures and algorithmic problem-solving.</li>
+                            <li><strong class="text-slate-700">Key Quantitative Courses:</strong> Business Analytics (94/100), Econometrics (90/100), Empirical Finance (83/100).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BUH -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[-29px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-slate-50"></div>
+                    <div class="md:border-l-2 md:border-slate-200 md:pl-8 md:ml-[5px] pb-4">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                            <h4 class="text-lg font-bold text-dark">Banking University of Ho Chi Minh City</h4>
+                            <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Sep 2010 – Jun 2014</span>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Bachelor of Finance and Banking</p>
+                        <p class="text-sm text-slate-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i> Ho Chi Minh City, Vietnam</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1.5 text-sm">
+                            <li><strong class="text-slate-700">GPA:</strong> 7.1/10.0 (Graduated with Good Classification)</li>
+                            <li><strong class="text-slate-700">Key Tech & Math Courses:</strong> General Information Technology (9.0/10), Management Information Systems (7.5/10), Advanced Mathematics 1 & 2.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-16 section-fade">
+            <h3 class="text-2xl font-bold text-dark mb-6 border-b pb-2 border-slate-200 flex items-center gap-3">
+                <i class="fas fa-laptop-code text-primary"></i> Technical Projects
+            </h3>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h4 class="text-xl font-bold text-dark mb-1">Smart Rental House Management System</h4>
+                        <p class="text-sm font-medium text-secondary">Independent Project (IoT & Web Development)</p>
+                    </div>
+                    <!-- Optional: Link to project repo -->
+                    <!-- <a href="#" class="text-slate-400 hover:text-primary"><i class="fab fa-github text-xl"></i></a> -->
+                </div>
+                
+                <ul class="space-y-3 text-slate-600 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i>
+                        <p><strong class="text-slate-700">System Design & Development:</strong> Designed and built a comprehensive web-based platform to efficiently manage boarding houses and rental properties.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i>
+                        <p><strong class="text-slate-700">IoT Integration:</strong> Integrated Internet of Things (IoT) solutions to automate hardware data collection, connecting the physical infrastructure to the web dashboard.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-check-circle text-green-500 mt-1 shrink-0"></i>
+                        <p><strong class="text-slate-700">Full-Stack Implementation:</strong> Utilized web development tools and Python-based logic to create a seamless user interface for monitoring room status, tenant information, and utility usage.</p>
+                    </li>
+                </ul>
+                <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-md">Python</span>
+                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-md">IoT</span>
+                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded-md">Web Development</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-16 section-fade">
+            <h3 class="text-2xl font-bold text-dark mb-8 border-b pb-2 border-slate-200 flex items-center gap-3">
+                <i class="fas fa-briefcase text-primary"></i> Professional Experience
+            </h3>
+            
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[-29px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-slate-50"></div>
+                    <div class="md:border-l-2 md:border-slate-200 md:pl-8 md:ml-[5px]">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-dark">Qianqi Industrial Co., Ltd.</h4>
+                            <span class="text-sm font-medium text-primary bg-blue-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Jun 2023 – Present</span>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Overseas Sales Manager</p>
+                        <p class="text-sm text-slate-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i> Taoyuan, Taiwan</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1.5 text-sm">
+                            <li><strong class="text-slate-700">Data & System Management:</strong> Analyze market data, production processes, and supply chain metrics to optimize costs and pricing strategies for US, EU, and Japanese markets.</li>
+                            <li><strong class="text-slate-700">Process Optimization:</strong> Streamlined export/import workflows and integrated cross-departmental operations (Sales, QA, QC) for a 7-person team.</li>
+                            <li><strong class="text-slate-700">Problem Solving:</strong> Act as the primary technical and business liaison between clients, agents, and manufacturing plant, requiring rapid troubleshooting.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[-29px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-slate-50"></div>
+                    <div class="md:border-l-2 md:border-slate-200 md:pl-8 md:ml-[5px]">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-dark">Vietcombank</h4>
+                            <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Aug 2016 – Jan 2021</span>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Customer Relationship Manager</p>
+                        <p class="text-sm text-slate-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i> Vietnam</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1.5 text-sm">
+                            <li><strong class="text-slate-700">Financial Data Analysis:</strong> Evaluated complex financial statements, credit histories, and business operations to assess risk and structure large-scale corporate loans.</li>
+                            <li><strong class="text-slate-700">Database Management:</strong> Maintained and updated extensive client portfolios within the bank's centralized IT systems, ensuring data accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute left-[-29px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-slate-50"></div>
+                    <div class="md:border-l-2 md:border-slate-200 md:pl-8 md:ml-[5px] pb-4">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-dark">Pima Limited Inc.</h4>
+                            <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Jul 2014 – Jan 2016</span>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Financial Analyst / Overseas Sales</p>
+                        <p class="text-sm text-slate-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i> Vietnam</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-1.5 text-sm">
+                            <li><strong class="text-slate-700">Analytical Modeling:</strong> Assessed financial health and credit risk of potential suppliers using advanced quantitative modeling and cost-price analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-12 section-fade">
+            <h3 class="text-2xl font-bold text-dark mb-6 border-b pb-2 border-slate-200 flex items-center gap-3">
+                <i class="fas fa-tools text-primary"></i> Skills & Certifications
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Tech Skills -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-dark mb-4 border-b border-slate-100 pb-2"><i class="fas fa-code text-secondary mr-2"></i> Technical & Programming</h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li><strong class="text-slate-700">Programming & AI:</strong> Python, AI programming tools (LLMs, AI-assisted coding), Google Colab, Jupyter Notebook.</li>
+                        <li><strong class="text-slate-700">Software & Hardware:</strong> Web Development, IoT implementation, PC troubleshooting, maintenance, and independent repair.</li>
+                        <li><strong class="text-slate-700">Data & Analytics:</strong> Advanced Microsoft Excel (Financial modeling, data processing).</li>
+                    </ul>
+                </div>
+
+                <!-- Languages & Certs -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col gap-6">
+                    <div>
+                        <h4 class="font-bold text-dark mb-4 border-b border-slate-100 pb-2"><i class="fas fa-language text-secondary mr-2"></i> Languages</h4>
+                        <div class="space-y-2 text-sm text-slate-600">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-slate-700">Vietnamese</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded text-xs">Native</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-slate-700">English</span>
+                                <span class="bg-blue-50 text-primary px-2 py-1 rounded text-xs">Proficient (TOEIC 725)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-slate-700">Mandarin Chinese</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded text-xs">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-dark mb-3 border-b border-slate-100 pb-2"><i class="fas fa-certificate text-secondary mr-2"></i> Certifications</h4>
+                        <div class="flex items-start gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <i class="fas fa-award text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-slate-700">CFA Level 1 Passed</p>
+                                <p class="text-xs text-slate-500">CFA Institute, June 2013</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center">
+        <p class="text-slate-500 text-sm">© 2023 Ta Hoang Minh. All rights reserved.</p>
+        <p class="text-slate-400 text-xs mt-1">Ready for the transition into Computer Science.</p>
+    </footer>
+
+    <!-- Notification Toast for Copy Email -->
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-dark text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-3 z-50">
+        <i class="fas fa-check-circle text-green-400"></i>
+        <span class="text-sm font-medium">Email address copied!</span>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Trigger animation for hero section immediately
+        setTimeout(() => {
+            document.getElementById('about').classList.add('visible');
+        }, 100);
+
+        // Copy Email Function
+        function copyEmail() {
+            const email = "tahoangminh26@gmail.com";
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(showToast);
+            } else {
+                // Fallback for older browsers or non-secure contexts (like some iframes)
+                const textArea = document.createElement("textarea");
+                textArea.value = email;
+                // Avoid scrolling to bottom
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast();
+                } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
